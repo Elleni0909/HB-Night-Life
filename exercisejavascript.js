@@ -1,5 +1,14 @@
 $(window).ready(function()
 {
+    jQuery.fn.exists = function(){return this.length>0;}
+
+    $.get("exercisestyle.css", function(css)
+    {
+       $('<style type="text/css"></style>')
+          .html(css)
+          .appendTo("head");
+    });
+
     var title = $(document).find("title").text();
     if (title == "" ||
         title != "My Manual")
@@ -8,8 +17,60 @@ $(window).ready(function()
     }
     else if (title == "My Manual")
     {
-        var heading = $( "<div id='heading'/>" );
-        var headingContent = "<h1>My Manual</h1>";
-        $(document.body).append(heading, headingContent);
+        // Load lesson and check for lesson number
+        $.ajax({
+            url: "exerciseTemplates/header.html",
+            context: document.body
+        }).done(function(msg) {
+            $(document.body).prepend(msg);
+            checkLessonProgression();
+        });
     }
+
+    $(document).on("click", ".fadeOut", function(e)
+    {
+        e.preventDefault();
+        $(this).parent().fadeOut(1000);
+    });
 });
+
+function checkLessonProgression()
+{
+    var l1check = lesson1check();
+    if (l1check !== true)
+    {
+        loadExercize(l1check);
+    }
+    else
+    {
+        loadExercize("headersdone");
+    }
+}
+
+function lesson1check()
+{
+    var h2 = $('body>h2');
+    if (h2.exists() === false ||
+        h2.text != "My First Header")
+    {
+        return 'headers';
+    }
+    // var h2 = $('body>h2');
+    // if (h2.exists() === false)
+    // {
+    //     return 'headers';
+    // }
+
+    return true;
+}
+
+function loadExercize(ex)
+{
+    console.log("Loading "+ex+".");
+    $.ajax({
+       url: "exerciseTemplates/lessons/"+ex+".html",
+        context: document.body
+    }).done(function(msg) {
+        $("#instruction").append(msg);
+    });
+}
