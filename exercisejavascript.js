@@ -1,6 +1,6 @@
 $(window).ready(function()
 {
-    jQuery.fn.exists = function(){return this.length>0;}
+    //jQuery.fn.exists = function(){return this.length>0;}
 
     $.get("exercisestyle.css", function(css)
     {
@@ -50,16 +50,18 @@ function checkLessonProgression()
 function lesson1check()
 {
     var h2 = $('body>h2');
-    if (h2.exists() === false ||
-        h2.text != "My First Header")
+    //check if the item exists.
+    if (h2.length === 0 ||
+        h2.text() != "My First Header")
     {
         return 'headers';
     }
-    // var h2 = $('body>h2');
-    // if (h2.exists() === false)
-    // {
-    //     return 'headers';
-    // }
+    var p = $('body>p');
+    if (p.length === 0 ||
+        p.text().length < 50)
+    {
+        return 'paragraph';
+    }
 
     return true;
 }
