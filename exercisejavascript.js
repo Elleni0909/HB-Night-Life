@@ -43,7 +43,7 @@ function checkLessonProgression()
     }
     else
     {
-        loadExercize("headersdone");
+        //loadExercize("headersdone");
     }
 }
 
@@ -52,7 +52,7 @@ function lesson1check()
     var h2 = $('body>h2');
     //check if the item exists.
     if (h2.length === 0 ||
-        h2.text() != "My First Header")
+        h2[0].text() != "My First Header")
     {
         return 'headers';
     }
