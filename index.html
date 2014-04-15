@@ -18,80 +18,80 @@ Run this file (it will open in a browser) to begin viewing it.
         tag.
         -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="myjavascript.js"></script>
-        <script src="exercisejavascript.js"></script>
-        <link rel="stylesheet" type="text/css" href="mystyle.css" />
+        <script src="exercise/assets/js/exercisejavascript.js"></script>
+        <script src="assets/js/myjavascript.js"></script>
+        <link rel="stylesheet" type="text/css" href="assets/css/mystyle.css" />
 
     </head>
     <body>
-        <!--I am the body tag. -->
-        <h2>My First Header</h2>
-        <h2>Paragraphs and Breaks</h2>
-        <p>
-            Twas bryllyg, and ye slythy toves<br />
-            Did gyre and gymble in ye wabe:<br />
-            All mimsy were ye borogoves;<br />
-            And ye mome raths outgrabe.
-        </p>
-        <h2>Links &amp; Lists &amp; Tables</h2>
-        <table>
-            <tr>
-                <th>Unordered List</th>
-                <th>Ordered List</th>
-            </tr>
-            <tr>
-                <td>
-                    <ul>
-                        <li><a href="http://www.hackbrightacademy.com">Hackbright Academy</a></li>
-                        <li><a href="http://www.google.com">Google.com</a></li>
-                        <li><a href="http://www.w3schools.com">W3 Schools</a></li>
-                    </ul>
-                </td>
-                <td>
-                    <ol>
-                        <li><a href="http://www.hackbrightacademy.com">Hackbright Academy</a></li>
-                        <li><a href="http://www.google.com">Google.com</a></li>
-                        <li><a href="http://www.w3schools.com">W3 Schools</a></li>
-                    </ol>
-                </td>
-                <!-- <td>
-                    <dl>
-                        <dt>Term 1</dt><dd>Definition 1</dd>
-                        <dt>Term 2</dt><dd>Definition 2</dd>
-                        <dt>Term 3</dt><dd>Definition 3</dd>
-                    </dl>
-                </td> -->
-            </tr>
-        </table>
-        <h2>Forms</h2>
-        <form action="#" method="post">
-            Name: <input type="text" name="name"/><br />
-            Bio: <textarea name="bio"></textarea><br />
-            Birth Month:
-            <select name="month">
-                <option>Jan</option>
-                <option>Feb</option>
-                <option>Mar</option>
-                <option>Apr</option>
-                <option>May</option>
-                <option>Jun</option>
-                <option>Jul</option>
-                <option>Aug</option>
-                <option>Sept</option>
-                <option>Oct</option>
-                <option>Nov</option>
-                <option>Dec</option>
-            </select><br />
-            <input type="submit" value="submit" />
-        </form>
-        <h2>Divs &amp; Spans</h2>
-        <div>
-            <span>I am an inline element</span>
+        <div id="page_container">
+            <div id="header"></div>
+            <div id="content">
+                <div id="nav_column"></div>
+                <div id="content_column"></div>
+                <h2>My First Header</h2>
+                <h2>Paragraphs and Breaks</h2>
+                <p>
+                    Twas bryllyg, and ye slythy toves<br />
+                    Did gyre and gymble in ye wabe:<br />
+                    All mimsy were ye borogoves;<br />
+                    And ye mome raths outgrabe.
+                </p>
+                <h2>Links &amp; Lists &amp; Tables</h2>
+                <table>
+                    <tr>
+                        <th>Unordered List</th>
+                        <th>Ordered List</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li><a href="http://www.hackbrightacademy.com">Hackbright Academy</a></li>
+                                <li><a href="http://www.google.com">Google.com</a></li>
+                                <li><a href="http://www.w3schools.com">W3 Schools</a></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ol>
+                                <li><a href="http://www.hackbrightacademy.com">Hackbright Academy</a></li>
+                                <li><a href="http://www.google.com">Google.com</a></li>
+                                <li><a href="http://www.w3schools.com">W3 Schools</a></li>
+                            </ol>
+                        </td>
+                    </tr>
+                </table>
+                <h2>Forms</h2>
+                <form action="#" method="post">
+                    Name: <input type="text" name="name"/><br />
+                    Bio: <textarea name="bio"></textarea><br />
+                    Birth Month:
+                    <select name="month">
+                        <option>Jan</option>
+                        <option>Feb</option>
+                        <option>Mar</option>
+                        <option>Apr</option>
+                        <option>May</option>
+                        <option>Jun</option>
+                        <option>Jul</option>
+                        <option>Aug</option>
+                        <option>Sept</option>
+                        <option>Oct</option>
+                        <option>Nov</option>
+                        <option>Dec</option>
+                    </select><br />
+                    <input type="submit" value="submit" />
+                </form>
+                <h2>Divs &amp; Spans</h2>
+                <div>
+                    <span>I am an inline element</span>
+                </div>
+                <div>
+                    <span>I am another inline element</span>
+                </div>
+                <h2>IFrames</h2>
+                <iframe width="853" height="480" src="//www.youtube.com/embed/l5ODwR6FPRQ" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div id="footer"></div>
         </div>
-        <div>
-            <span>I am another inline element</span>
-        </div>
-        <h2>IFrames</h2>
-        <iframe width="853" height="480" src="//www.youtube.com/embed/l5ODwR6FPRQ" frameborder="0" allowfullscreen></iframe>
     </body>
 </html>
