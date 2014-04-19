@@ -24,7 +24,6 @@ $(document).ready(function()
         }).done(function(msg) {
             $(document.body).prepend(msg);
             checkLessonProgression();
-            console.log($);
         });
     }
 
@@ -50,10 +49,10 @@ function checkLessonProgression()
 
 function lessoncheck()
 {
-    var h2 = $('h2');
+    var h1 = $('h1');
     //check if the item exists.
-    if (h2.length === 0 ||
-        h2[0].textContent != "My First Header")
+    if (h1.length === 0 ||
+        h1[0].textContent != "My First Header")
     {
         return 'headers';
     }
