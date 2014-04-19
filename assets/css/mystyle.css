@@ -8,12 +8,72 @@ html, body
     margin: 0;
     height: 100%;
 }
+/*#page_container
+{
+    width:            1024px;
+    margin:           0 auto;
+    background-color: #FFF;
+    box-shadow:       0 0 3px #000;
+    min-height:       100%;
+    padding:          10px;
+    position:         relative;
+    float:left;
+    overflow: hidden;
+    background: #eee;
+}
+#nav_column
+{
+    float: left;
+    width: 25%;
+    position: relative;
+    left: 75%;
+}
+#content_column
+{
+    float: left;
+    width: 75%;
+    position: relative;
+    left: 75%
+}*/
+
+h1,h2,h3,h4,h5,h6
+{
+    margin: 8px 0 3px 0;
+}
+
+.highlight
+{
+    background-color: #FF0;
+}
 #page_container
 {
     width: 1024px;
     margin: 0 auto;
-    background-color: #FFF;
-    box-shadow: 0 0 3px #000;
-    min-height: 100%;
-    padding: 10px;
+    overflow: hidden;
+    background: #eee;
+}
+
+#content
+{
+    float:left;
+    background: #333;
+    position: relative;
+    right:50%;
+}
+
+#nav_column
+{
+    float: left;
+    width: 25%;
+    position: relative;
+    left: 75%;
+}
+
+#content_column
+{
+    float: left;
+    width: 120%;
+    position: relative;
+    left: 100%;
+    margin: 0 10px;
 }
