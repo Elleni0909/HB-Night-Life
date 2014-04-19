@@ -1,3 +1,7 @@
 Intro to Web Development
 =============
-![KITTEH](https://raw.githubusercontent.com/Steague/HB-Night-Life/master/kitty.jpg)
+Run the Simple HTTP Server (Python) in the root directory to get this working.
+
+python -m SimpleHTTPServer
+
+This is needed because of the AJAX lessons being loaded asynchronously from the local machine.
