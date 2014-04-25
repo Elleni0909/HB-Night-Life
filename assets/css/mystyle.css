@@ -8,33 +8,6 @@ html, body
     margin: 0;
     height: 100%;
 }
-/*#page_container
-{
-    width:            1024px;
-    margin:           0 auto;
-    background-color: #FFF;
-    box-shadow:       0 0 3px #000;
-    min-height:       100%;
-    padding:          10px;
-    position:         relative;
-    float:left;
-    overflow: hidden;
-    background: #eee;
-}
-#nav_column
-{
-    float: left;
-    width: 25%;
-    position: relative;
-    left: 75%;
-}
-#content_column
-{
-    float: left;
-    width: 75%;
-    position: relative;
-    left: 75%
-}*/
 
 h1,h2,h3,h4,h5,h6
 {
@@ -76,4 +49,8 @@ h1,h2,h3,h4,h5,h6
     position: relative;
     left: 100%;
     margin: 0 10px;
+}
+.loader
+{
+    width: 32px;
 }
