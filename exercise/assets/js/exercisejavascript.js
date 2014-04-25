@@ -43,7 +43,7 @@ function checkLessonProgression()
     }
     else
     {
-        //loadExercize("headersdone");
+        loadExercize("headersdone");
     }
 }
 
@@ -57,10 +57,24 @@ function lessoncheck()
         return 'headers';
     }
     var p = $('p');
-    if (p.length === 0 ||
-        p[0].textContent.length < 50)
+    if (h1[1].textContent != "Paragraphs" ||
+        (p.length === 0 ||
+        p[0].textContent.length < 50))
     {
         return 'paragraph';
+    }
+
+    var a = $('a[href]');
+    if (h1[2].textContent != "Links, Lists and Tables" ||
+        a.length === 0 ||
+        a[0].href.replace(/\W+/g, "") != "httpwwwhackbrightacademycom")
+    {
+        return 'links';
+    }
+
+    if (a.parent()+"".toLowerCase() != "li")
+    {
+        return 'lists';
     }
 
     return true;
