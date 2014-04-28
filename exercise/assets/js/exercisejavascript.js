@@ -39,11 +39,11 @@ function checkLessonProgression()
     var lcheck = lessoncheck();
     if (lcheck !== true)
     {
-        //loadExercize(lcheck);
+        loadExercize(lcheck);
     }
     else
     {
-        //loadExercize("headersdone");
+        loadExercize("headersdone");
     }
 }
 
@@ -64,7 +64,7 @@ function lessoncheck()
         return 'paragraph';
     }
 
-    var a = $('a[href]');
+    var a = $(h1[2].nextElementSibling).find('a[href]');
     if (h1[2].textContent != "Links, Lists and Tables" ||
         a.length === 0 ||
         a[0].href.replace(/\W+/g, "") != "httpwwwhackbrightacademycom")
@@ -72,13 +72,14 @@ function lessoncheck()
         return 'links';
     }
 
-    console.log(a.parent().parent());
     if (a.parent()[0].nodeName.toLowerCase() != "li" ||
         a.parent().parent()[0].nodeName.toLowerCase() != "ul" ||
-        a.parent().parent()[1].nodeName.toLowerCase() != "ol")
+        a.parent().parent().next()[0].nodeName.toLowerCase() != "ol")
     {
         return 'lists';
     }
+
+    return 'tables';
 
     return true;
 }
