@@ -39,11 +39,11 @@ function checkLessonProgression()
     var lcheck = lessoncheck();
     if (lcheck !== true)
     {
-        loadExercize(lcheck);
+        //loadExercize(lcheck);
     }
     else
     {
-        loadExercize("headersdone");
+        //loadExercize("headersdone");
     }
 }
 
@@ -72,7 +72,10 @@ function lessoncheck()
         return 'links';
     }
 
-    if (a.parent()+"".toLowerCase() != "li")
+    console.log(a.parent().parent());
+    if (a.parent()[0].nodeName.toLowerCase() != "li" ||
+        a.parent().parent()[0].nodeName.toLowerCase() != "ul" ||
+        a.parent().parent()[1].nodeName.toLowerCase() != "ol")
     {
         return 'lists';
     }
@@ -84,8 +87,9 @@ function loadExercize(ex)
 {
     console.log("Loading "+ex+".");
     $.ajax({
-       url: "/exercise/lessons/"+ex+".html",
-        context: document.body
+        url: "/exercise/lessons/"+ex+".html",
+        context: document.body,
+        cache: false
     }).done(function(msg) {
         $("#instruction").append(msg);
     });

@@ -2,7 +2,8 @@
  * This only gets run after jQuery has determined that the entire document has
  * been loaded.
  */
-$(document).ready(function () {
+$(document).ready(function ()
+{
     // Run the navigation creator function
     createNav();
 
