@@ -117,7 +117,7 @@ function lessoncheck()
         return "forms2";
     }
 
-    return "forms3";
+    return "forms2";
 
     return true;
 }
