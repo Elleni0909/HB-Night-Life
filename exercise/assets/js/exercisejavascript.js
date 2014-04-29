@@ -84,7 +84,6 @@ function lessoncheck()
         return 'lists';
     }
 
-    //console.log(td.length,tr.length,table.length,tr[0].nodeName.toLowerCase());
     if (td.length === 0 ||
         tr.length === 0 ||
         table.length === 0)
@@ -93,13 +92,32 @@ function lessoncheck()
     }
 
     var form = $(h1[3].nextElementSibling);
-    console.log(form.find('input'));
+    var inputs = form.find('input');
     if (h1[3].textContent != "Forms" ||
         form.length === 0 ||
-        form.children().first()[0].nodeName.toLowerCase() != "input")
+        form.attr('action') != "#" ||
+        form.attr('method').toLowerCase() != 'post' ||
+        inputs.length === 0 ||
+        $(inputs[0]).attr('type') != "text" ||
+        $(inputs[0]).attr('name') != 'name' ||
+        $(inputs[0]).attr('id') != 'name')
     {
         return "forms";
     }
+
+    var textarea = form.find('textarea');
+    var select = form.find('select');
+    var options = select.find('option');
+    if ($(textarea[0]).attr('name') != "bio" ||
+        $(textarea[0]).attr('id') != 'bio' ||
+        $(select[0]).attr('name') != "month" ||
+        $(select[0]).attr('id') != 'month' ||
+        options.length !== 12)
+    {
+        return "forms2";
+    }
+
+    return "forms3";
 
     return true;
 }
