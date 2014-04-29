@@ -72,14 +72,34 @@ function lessoncheck()
         return 'links';
     }
 
+    var td = a.parent().first().parent().parent();
+    var tr = td.parent();
+    var table = tr.parent();
+    var ul = a.parent().parent();
+    var ol = (a.parent().find('ol').length ? a.parent().find('ol') : table.find('ol'));
     if (a.parent()[0].nodeName.toLowerCase() != "li" ||
-        a.parent().parent()[0].nodeName.toLowerCase() != "ul" ||
-        a.parent().parent().next()[0].nodeName.toLowerCase() != "ol")
+        ul[0].nodeName.toLowerCase() != "ul" ||
+        ol.length === 0)
     {
         return 'lists';
     }
 
-    return 'tables';
+    //console.log(td.length,tr.length,table.length,tr[0].nodeName.toLowerCase());
+    if (td.length === 0 ||
+        tr.length === 0 ||
+        table.length === 0)
+    {
+        return 'tables';
+    }
+
+    var form = $(h1[3].nextElementSibling);
+    console.log(form.find('input'));
+    if (h1[3].textContent != "Forms" ||
+        form.length === 0 ||
+        form.children().first()[0].nodeName.toLowerCase() != "input")
+    {
+        return "forms";
+    }
 
     return true;
 }
