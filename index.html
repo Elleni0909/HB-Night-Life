@@ -43,34 +43,34 @@ Run this file (it will open in a browser) to begin viewing it.
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id dui bibendum, condimentum augue ac, gravida felis. Aliquam imperdiet nulla a ante pellentesque consectetur. Nunc faucibus egestas lorem, vitae malesuada neque feugiat eu. Ut nec dictum enim, at euismod est. Nam tempor diam metus. Cras tempor aliquam nisl et mattis. Curabitur lacinia, metus sed pulvinar luctus, risus risus gravida felis, non luctus nibh leo vel tellus.
                     </p>
                     <h1>Links, Lists and Tables</h1>
-                    <!-- <table>
+                    <table>
                         <tr>
                             <th>Unordered List</th>
                             <th>Ordered List</th>
                         </tr>
                         <tr>
-                            <td>-->
+                            <td>
                                 <ul>
                                     <li><a href="http://www.hackbrightacademy.com">Hackbright Academy</a></li>
                                     <li><a href="http://www.google.com">Google.com</a></li>
                                     <li><a href="http://www.w3schools.com">W3 Schools</a></li>
-                                </ul><!--
+                                </ul>
                             </td>
-                            <td>-->
+                            <td>
                                 <ol>
                                     <li><a href="http://www.hackbrightacademy.com">Hackbright Academy</a></li>
                                     <li><a href="http://www.google.com">Google.com</a></li>
                                     <li><a href="http://www.w3schools.com">W3 Schools</a></li>
-                                </ol><!--
+                                </ol>
                             </td>
                         </tr>
-                    </table> -->
-                    <!--<h1>Forms</h1>
+                    </table>
+                    <h1>Forms</h1>
                     <form action="#" method="post">
-                        Name: <input type="text" name="name"/><br />
-                        Bio: <textarea name="bio"></textarea><br />
-                        Birth Month:
-                        <select name="month">
+                        <label for="name">Name:</label> <input type="text" id="name" name="name"/><br />
+                        <label for="bio">Bio:</label> <textarea id="bio" name="bio"></textarea><br />
+                        <label for="month">Birth Month:</label>
+                        <select id="month" name="month">
                             <option>Jan</option>
                             <option>Feb</option>
                             <option>Mar</option>
@@ -84,8 +84,13 @@ Run this file (it will open in a browser) to begin viewing it.
                             <option>Nov</option>
                             <option>Dec</option>
                         </select><br />
+                        Gender:
+                        <input type="radio" name="sex" id="male" value="male" disabled="true" /> <label for="male">Male</label>
+                        <input type="radio" name="sex" id="female" value="female" checked="checked"/> <label for="female">Female</label><br />
+                        <input type="checkbox" name="agree" value="agree" id="agree" /> <label for="agree">Agree to the Terms?</label><br />
                         <input type="submit" value="submit" />
                     </form>
+                    <!--
                     <h1>Divs &amp; Spans</h1>
                     <div>
                         <span>I am an inline element</span>
