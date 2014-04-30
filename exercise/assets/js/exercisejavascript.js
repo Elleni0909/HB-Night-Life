@@ -57,8 +57,8 @@ function lessoncheck()
         return 'headers';
     }
     var p = $('p');
-    console.log(h1[1]);
-    if (h1[1].textContent != "Paragraphs" ||
+    if (h1.length < 2 ||
+        h1[1].textContent != "Paragraphs" ||
         (p.length === 0 ||
         p[0].textContent.length < 50))
     {
@@ -66,7 +66,8 @@ function lessoncheck()
     }
 
     var a = $(h1[2].nextElementSibling).find('a[href]');
-    if (h1[2].textContent != "Links, Lists and Tables" ||
+    if (h1.length < 3 ||
+        h1[2].textContent != "Links, Lists and Tables" ||
         a.length === 0 ||
         a[0].href.replace(/\W+/g, "") != "httpwwwhackbrightacademycom")
     {
@@ -94,7 +95,8 @@ function lessoncheck()
 
     var form = $(h1[3].nextElementSibling);
     var inputs = form.find('input');
-    if (h1[3].textContent != "Forms" ||
+    if (h1.length < 4 ||
+        h1[3].textContent != "Forms" ||
         form.length === 0 ||
         form.attr('action') != "#" ||
         form.attr('method').toLowerCase() != 'post' ||
