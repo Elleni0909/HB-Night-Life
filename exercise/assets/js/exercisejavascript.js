@@ -65,7 +65,10 @@ function lessoncheck()
         return 'paragraph';
     }
 
-    var a = $(h1[2].nextElementSibling).find('a[href]');
+    if (h1.length >= 3)
+    {
+        var a = $(h1[2].nextElementSibling).find('a[href]');
+    }
     if (h1.length < 3 ||
         h1[2].textContent != "Links, Lists and Tables" ||
         a.length === 0 ||
@@ -93,8 +96,11 @@ function lessoncheck()
         return 'tables';
     }
 
-    var form = $(h1[3].nextElementSibling);
-    var inputs = form.find('input');
+    if (h1.length >= 4)
+    {
+        var form = $(h1[3].nextElementSibling);
+        var inputs = form.find('input');
+    }
     if (h1.length < 4 ||
         h1[3].textContent != "Forms" ||
         form.length === 0 ||
