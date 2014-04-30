@@ -8,11 +8,11 @@ Download and install Git SCM https://github.com/msysgit/msysgit/releases/downloa
 
 Add ";C:\Python27" to your PATH Environment Variable. (From Command prompt: SET PATH=%PATH%;c:\Python27)
 
-Clone this Repo.
+Clone this Repo to a diectory of your choice.
 
-Run the Simple HTTP Server (Python) in the root directory to get this working.
+In the directory you chose, run this command: git update-index --assume-unchanged index.html
 
-python -m SimpleHTTPServer
+In that same directory, run the Simple HTTP Server (Python): python -m SimpleHTTPServer
 
 This is needed because of the AJAX lessons being loaded asynchronously from the local machine.
 

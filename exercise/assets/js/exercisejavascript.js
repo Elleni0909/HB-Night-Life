@@ -67,7 +67,14 @@ function lessoncheck()
 
     if (h1.length >= 3)
     {
-        var a = $(h1[2].nextElementSibling).find('a[href]');
+        if ($(h1[2].nextElementSibling)[0].tagName.toLowerCase() == "a")
+        {
+            var a = $(h1[2].nextElementSibling);
+        }
+        else
+        {
+            var a = $(h1[2].nextElementSibling).find('a[href]');
+        }
     }
     if (h1.length < 3 ||
         h1[2].textContent != "Links, Lists and Tables" ||
