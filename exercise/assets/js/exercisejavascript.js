@@ -96,7 +96,8 @@ function lessoncheck()
         return 'lists';
     }
 
-    if (td.length === 0 ||
+    if (td[0].tagName.toLowerCase() != "td" ||
+        td.length === 0 ||
         tr.length === 0 ||
         table.length === 0)
     {
