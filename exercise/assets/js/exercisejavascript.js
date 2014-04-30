@@ -57,6 +57,7 @@ function lessoncheck()
         return 'headers';
     }
     var p = $('p');
+    console.log(h1[1]);
     if (h1[1].textContent != "Paragraphs" ||
         (p.length === 0 ||
         p[0].textContent.length < 50))
@@ -133,4 +134,3 @@ function loadExercize(ex)
         $("#instruction").append(msg);
     });
 }
-
