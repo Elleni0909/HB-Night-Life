@@ -134,7 +134,30 @@ function lessoncheck()
         return "forms2";
     }
 
-    return "forms3";
+    var radios = form.find('input[type="radio"]');
+    var radiosLabelMale = form.find('label[for="male"]');
+    var radiosLabelFemale = form.find('label[for="female"]');
+    var checkbox = form.find('input[type="checkbox"]');
+    var checkboxLabel = form.find('label[for="agree"]');
+    if ($(radios[0]).attr('name') != "gender" ||
+        $(radios[0]).attr('name') != $(radios[1]).attr('name') ||
+        radios.length != 2 ||
+        $(checkbox[0]).attr('name') != "agree" ||
+        radiosLabelMale.length === 0 ||
+        radiosLabelFemale.length === 0 ||
+        checkboxLabel.length === 0)
+    {
+        return "forms3";
+    }
+
+    var submit = form.find('input[type="submit"]');
+    if ($(submit[0]).attr('name') != "submit" ||
+        $(submit[0]).attr('id') != "submit" ||
+        $(submit[0]).attr('value') != "submit" ||
+        $(submit[0]).attr('type') != "submit")
+    {
+        return "forms4";
+    }
 
     return true;
 }
