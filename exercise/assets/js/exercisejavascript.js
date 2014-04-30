@@ -139,10 +139,10 @@ function lessoncheck()
     var radiosLabelFemale = form.find('label[for="female"]');
     var checkbox = form.find('input[type="checkbox"]');
     var checkboxLabel = form.find('label[for="agree"]');
-    if ($(radios[0]).attr('name') != "gender" ||
+    if ($(radios[0]).attr('name').toLowerCase() != "gender" ||
         $(radios[0]).attr('name') != $(radios[1]).attr('name') ||
         radios.length != 2 ||
-        $(checkbox[0]).attr('name') != "agree" ||
+        $(checkbox[0]).attr('name').toLowerCase() != "agree" ||
         radiosLabelMale.length === 0 ||
         radiosLabelFemale.length === 0 ||
         checkboxLabel.length === 0)
@@ -151,12 +151,34 @@ function lessoncheck()
     }
 
     var submit = form.find('input[type="submit"]');
-    if ($(submit[0]).attr('name') != "submit" ||
-        $(submit[0]).attr('id') != "submit" ||
-        $(submit[0]).attr('value') != "submit" ||
-        $(submit[0]).attr('type') != "submit")
+    if ($(submit[0]).attr('name').toLowerCase() != "submit" ||
+        $(submit[0]).attr('id').toLowerCase() != "submit" ||
+        $(submit[0]).attr('value').toLowerCase() != "submit" ||
+        $(submit[0]).attr('type').toLowerCase() != "submit")
     {
         return "forms4";
+    }
+
+    var div = $('#first_div');
+    //console.log('"'+div.text().replace(/\W+/g, "")+'"');
+    if (h1.length < 5 ||
+        h1[4].textContent != "Divs and Spans" ||
+        div.length === 0)
+    {
+        return "divs";
+    }
+
+    if (div.text().replace(/\W+/g, "") == "")
+    {
+        div.html('&nbsp;');
+    }
+
+    var span1 = $('#first_span');
+    var span2 = $('#second_span');
+    if (span1.length === 0 ||
+        span2.length === 0)
+    {
+        return "spans";
     }
 
     return true;

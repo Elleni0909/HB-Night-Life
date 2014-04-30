@@ -36,3 +36,15 @@ a.fadeOut
     color            : #FFF;
     margin-right     : -40px;
 }
+#first_div
+{
+    background-color: #f00;
+}
+#first_span
+{
+    background-color: #0f0;
+}
+#second_span
+{
+    background-color: #00f;
+}
