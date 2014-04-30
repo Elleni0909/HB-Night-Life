@@ -6,7 +6,7 @@ Download and install Python (32Bit) https://www.python.org/ftp/python/2.7.6/pyth
 
 Download and install Git SCM https://github.com/msysgit/msysgit/releases/download/Git-1.9.2-preview20140411/Git-1.9.2-preview20140411.exe
 
-Add ";C:\Python27" to your PATH Environment Variable.
+Add ";C:\Python27" to your PATH Environment Variable. (From Command prompt: SET PATH=%PATH%;c:\Python27)
 
 Clone this Repo.
 
