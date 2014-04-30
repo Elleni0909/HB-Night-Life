@@ -1,8 +1,8 @@
-$(window).ready(function()
+$(document).ready(function()
 {
     //jQuery.fn.exists = function(){return this.length>0;}
 
-    $.get("assets/css/exercisestyle.css", function(css)
+    $.get("exercise/assets/css/exercisestyle.css", function(css)
     {
        $('<style type="text/css"></style>')
           .html(css)
@@ -19,7 +19,7 @@ $(window).ready(function()
     {
         // Load lesson and check for lesson number
         $.ajax({
-            url: "exerciseTemplates/header.html",
+            url: "/exercise/header.html",
             context: document.body
         }).done(function(msg) {
             $(document.body).prepend(msg);
@@ -36,32 +36,88 @@ $(window).ready(function()
 
 function checkLessonProgression()
 {
-    var l1check = lesson1check();
-    if (l1check !== true)
+    var lcheck = lessoncheck();
+    if (lcheck !== true)
     {
-        loadExercize(l1check);
+        loadExercize(lcheck);
     }
     else
     {
-        //loadExercize("headersdone");
+        loadExercize("headersdone");
     }
 }
 
-function lesson1check()
+function lessoncheck()
 {
-    var h2 = $('body>h2');
+    var h1 = $('h1');
     //check if the item exists.
-    if (h2.length === 0 ||
-        h2[0].text() != "My First Header")
+    if (h1.length === 0 ||
+        h1[0].textContent != "My First Header")
     {
         return 'headers';
     }
-    var p = $('body>p');
-    if (p.length === 0 ||
-        p.text().length < 50)
+    var p = $('p');
+    if (h1[1].textContent != "Paragraphs" ||
+        (p.length === 0 ||
+        p[0].textContent.length < 50))
     {
         return 'paragraph';
     }
+
+    var a = $(h1[2].nextElementSibling).find('a[href]');
+    if (h1[2].textContent != "Links, Lists and Tables" ||
+        a.length === 0 ||
+        a[0].href.replace(/\W+/g, "") != "httpwwwhackbrightacademycom")
+    {
+        return 'links';
+    }
+
+    var td = a.parent().first().parent().parent();
+    var tr = td.parent();
+    var table = tr.parent();
+    var ul = a.parent().parent();
+    var ol = (a.parent().find('ol').length ? a.parent().find('ol') : table.find('ol'));
+    if (a.parent()[0].nodeName.toLowerCase() != "li" ||
+        ul[0].nodeName.toLowerCase() != "ul" ||
+        ol.length === 0)
+    {
+        return 'lists';
+    }
+
+    if (td.length === 0 ||
+        tr.length === 0 ||
+        table.length === 0)
+    {
+        return 'tables';
+    }
+
+    var form = $(h1[3].nextElementSibling);
+    var inputs = form.find('input');
+    if (h1[3].textContent != "Forms" ||
+        form.length === 0 ||
+        form.attr('action') != "#" ||
+        form.attr('method').toLowerCase() != 'post' ||
+        inputs.length === 0 ||
+        $(inputs[0]).attr('type') != "text" ||
+        $(inputs[0]).attr('name') != 'name' ||
+        $(inputs[0]).attr('id') != 'name')
+    {
+        return "forms";
+    }
+
+    var textarea = form.find('textarea');
+    var select = form.find('select');
+    var options = select.find('option');
+    if ($(textarea[0]).attr('name') != "bio" ||
+        $(textarea[0]).attr('id') != 'bio' ||
+        $(select[0]).attr('name') != "month" ||
+        $(select[0]).attr('id') != 'month' ||
+        options.length !== 12)
+    {
+        return "forms2";
+    }
+
+    return "forms2";
 
     return true;
 }
@@ -70,8 +126,9 @@ function loadExercize(ex)
 {
     console.log("Loading "+ex+".");
     $.ajax({
-       url: "exerciseTemplates/lessons/"+ex+".html",
-        context: document.body
+        url: "/exercise/lessons/"+ex+".html",
+        context: document.body,
+        cache: false
     }).done(function(msg) {
         $("#instruction").append(msg);
     });
