@@ -5,10 +5,10 @@
 $(document).ready(function ()
 {
     // Run the navigation creator function
-    createNav();
+    //createNav();
 
     // Run the show weather function
-    showWeather();
+    //showWeather();
 });
 
 /**

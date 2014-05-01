@@ -43,7 +43,7 @@ function checkLessonProgression()
     }
     else
     {
-        loadExercize("headersdone");
+        //loadExercize("headersdone");
     }
 }
 
@@ -179,6 +179,17 @@ function lessoncheck()
         span2.length === 0)
     {
         return "spans";
+    }
+
+    if ($('#content_column').length === 0 ||
+        $('#nav_column').length === 0 ||
+        $('#content_column').parent('#content').length === 0 ||
+        $('#nav_column').parent('#content').length === 0 ||
+        $('#content').length === 0 ||
+        $('#content').parent('#page_container').length === 0 ||
+        $('#page_container').length === 0)
+    {
+        return "layoutprep";
     }
 
     return true;
